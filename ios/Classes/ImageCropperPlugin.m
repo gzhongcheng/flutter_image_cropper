@@ -37,6 +37,8 @@
       NSNumber *ratioX = call.arguments[@"ratio_x"];
       NSNumber *ratioY = call.arguments[@"ratio_y"];
       Boolean circleShape = [call.arguments[@"circle_shape"] boolValue];
+      NSString *doneTitle = call.arguments[@"done_title"];
+      NSString *cancelTitle = call.arguments[@"cancel_title"];
       
       UIImage *image = [UIImage imageWithContentsOfFile:sourcePath];
       TOCropViewController *cropViewController;
@@ -53,6 +55,8 @@
           cropViewController.aspectRatioLockDimensionSwapEnabled = YES;
           cropViewController.aspectRatioLockEnabled = YES;
       }
+      [cropViewController setDoneButtonTitle:doneTitle];
+      [cropViewController setCancelButtonTitle:cancelTitle];
       [_viewController presentViewController:cropViewController animated:YES completion:nil];
   } else {
       result(FlutterMethodNotImplemented);

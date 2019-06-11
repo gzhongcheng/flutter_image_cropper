@@ -57,6 +57,8 @@ class ImageCropper {
     String toolbarTitle, // for only Android
     Color toolbarColor, // for only Android
     bool circleShape: false,
+    String doneTitle: 'Done',
+    String cancelTitle: 'Cancel',
   }) async {
     assert(sourcePath != null);
 
@@ -77,7 +79,9 @@ class ImageCropper {
       'ratio_y': ratioY,
       'toolbar_title': toolbarTitle,
       'toolbar_color': toolbarColor?.value,
-      'circle_shape': circleShape
+      'circle_shape': circleShape,
+      'done_title': doneTitle,
+      'cancel_title': cancelTitle,
     });
     return resultPath == null ? null : new File(resultPath);
   }
