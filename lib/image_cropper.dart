@@ -54,11 +54,14 @@ class ImageCropper {
     double ratioY,
     int maxWidth,
     int maxHeight,
-    String toolbarTitle, // for only Android
-    Color toolbarColor, // for only Android
     bool circleShape: false,
     String doneTitle: 'Done',
     String cancelTitle: 'Cancel',
+    // customization for Android
+    String toolbarTitle,
+    Color toolbarColor,
+    Color statusBarColor,
+    Color toolbarWidgetColor,
   }) async {
     assert(sourcePath != null);
 
@@ -77,11 +80,13 @@ class ImageCropper {
       'max_height': maxHeight,
       'ratio_x': ratioX,
       'ratio_y': ratioY,
+      'circle_shape': circleShape,
       'toolbar_title': toolbarTitle,
       'toolbar_color': toolbarColor?.value,
-      'circle_shape': circleShape,
       'done_title': doneTitle,
       'cancel_title': cancelTitle,
+      'statusbar_color': statusBarColor?.value,
+      'toolbar_widget_color': toolbarWidgetColor?.value,
     });
     return resultPath == null ? null : new File(resultPath);
   }
